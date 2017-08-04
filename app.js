@@ -192,7 +192,7 @@ app.post('/bot-fulfillment', (req, res) => {
     		if (err) {
     			throw err;
     		}
-    		response = book.pages;
+    		response = book[0].pages;
     		res.setHeader("Content-Type", "application/json");
 			res.json({
 		        speech: response,
@@ -234,7 +234,8 @@ app.post('/bot-fulfillment', (req, res) => {
     		if (err) {
     			throw err;
     		}
-    		response = book.description;
+
+    		var response = book[0].description;
     		res.setHeader("Content-Type", "application/json");
 			res.json({
 		        speech: response,
